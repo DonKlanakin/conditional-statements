@@ -1,0 +1,24 @@
+body {
+    background-color: #1e1e1e;
+    font-family: noto sans thai, sans-serif;
+    color: whitesmoke;
+    margin: 24px;
+}
+img {
+    width: 300px;
+}
+section {
+    margin-top: 32px;
+}
+.answer {
+    margin-top: 16px;
+    margin-left: 24px;
+}
+.exercise {
+    font-size: large;
+    font-weight: bold;
+}
+.question {
+    color: gray;
+    font-size: medium;
+}
