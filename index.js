@@ -1,95 +1,139 @@
 // Exercise 1
-const multiply = (x, y) => {
-    return x * y;
+// เขียนโปรแกรมที่หาเลขจำนวนเต็มที่มากที่สุด ระหว่างเลขจำนวนเต็มสองตัว
+const findMaxFromTwoValues = (x, y) => {
+    return Math.max(x, y);
 };
-let ansEx1_1 = `multiply(2,3): ${multiply(2, 3)}`;
-let ansEx1_2 = `multiply(9,9): ${multiply(9, 9)}`;
-let ansEx1_3 = `multiply(5,4): ${multiply(5, 4)}`;
-document.getElementById("ansEx1_1").innerHTML = ansEx1_1;
-document.getElementById("ansEx1_2").innerHTML = ansEx1_2;
-document.getElementById("ansEx1_3").innerHTML = ansEx1_3;
+let ansEx1 = `Max value is: ${findMaxFromTwoValues(10, 20)}`;
+document.getElementById("ansEx1").innerHTML = ansEx1;
 
 // Exercise 2
-const isShortsWeather = (temparature) => {
-    return temparature >= 75 ? true : false;
+// เขียนโปรแกรม JS โดยใช้ condition statement
+// เพื่อหาเครื่องหมายของผลลัพธ์ที่ได้จากการคูณกันของตัวเลข 3 ตัว
+const findSign = (x, y, z) => {
+    return `The sign is ${(x*y*z === 0) ? 0 : (x*y*z > 0) ? "+" : "-"}`;
 };
-let ansEx2_1 = `isShortsWeather(80): ${isShortsWeather(80)}`;
-let ansEx2_2 = `isShortsWeather(40): ${isShortsWeather(40)}`;
-let ansEx2_3 = `isShortsWeather(48): ${isShortsWeather(48)}`;
-document.getElementById("ansEx2_1").innerHTML = ansEx2_1;
-document.getElementById("ansEx2_2").innerHTML = ansEx2_2;
-document.getElementById("ansEx2_3").innerHTML = ansEx2_3;
+let ansEx2 = findSign(1, -2, 3);
+document.getElementById("ansEx2").innerHTML = ansEx2;
+
 
 // Exercise 3
-const lastElement = (ary) => {
-    return ary.length <= 0 ? null : ary[ary.length - 1];
+// เขียนโปรแกรม JS โดยใช้ conditional statement
+// เพื่อเรียงตัวเลข 3 ตัว จากค่ามากไปหาค่าน้อย
+const sortDescending = (x, y, z) => {
+    return [x, y, z].sort((x, y) => y - x);
 };
-let ansEx3_1 = `lastElement([3,5,7]): ${lastElement([3, 5, 7])}`;
-let ansEx3_2 = `lastElement([1]): ${lastElement([1])}`;
-let ansEx3_3 = `lastElement([]): ${lastElement([])}`;
-document.getElementById("ansEx3_1").innerHTML = ansEx3_1;
-document.getElementById("ansEx3_2").innerHTML = ansEx3_2;
-document.getElementById("ansEx3_3").innerHTML = ansEx3_3;
+let ansEx3 = `Sort in descending: ${sortDescending(6,1,77).join(", ")}`;
+document.getElementById("ansEx3").innerHTML = ansEx3;
 
 // Exercise 4
-const capitalize = (str) => {
-    return str[0].toUpperCase().concat(str.slice(1));
+// เขียนโปรแกรม JS โดยใช้ conditional statement
+// เพื่อหาตัวเลขที่มีค่ามากที่สุด จากตัวเลข 5 ตัว
+const findMaxFromFiveValues = (a, b, c, d, e) => {
+    return Math.max(a, b, c, d, e);
 };
-let ansEx4_1 = `capitalize("eggplant"): ${capitalize("eggplant")}`;
-let ansEx4_2 = `capitalize("pamplemousse"): ${capitalize("pamplemousse")}`;
-let ansEx4_3 = `capitalize("squid"): ${capitalize("squid")}`;
-document.getElementById("ansEx4_1").innerHTML = ansEx4_1;
-document.getElementById("ansEx4_2").innerHTML = ansEx4_2;
-document.getElementById("ansEx4_3").innerHTML = ansEx4_3;
+let ansEx4 = `Max value is: ${findMaxFromFiveValues(1, 2, 3, 4, 5)}`;
+document.getElementById("ansEx4").innerHTML = ansEx4;
 
 //Exercise 5
-const sumArray = (aryNumbers) => {
-    return aryNumbers.reduce((accumulator, current) => accumulator + current, 0);
+// เขียนโปรแกรม JS โดยใช้ loop เพื่อทำซ้ำกระบวนการตั้งแต่เลข 0 ถึง 15
+// โดยที่ในแต่ละรอบของการทำซ้ำ ใช้ทำการเช็กว่าตัวเลข ณ รอบนั้น เป็นเลขคู่ หรือ เลขคี่
+// และให้แสดงผลลัพธ์เป็นข้อความในหน้าจอ ดังนี้
+// "0 is even"
+// "1 is odd"
+// "2 is even"
+// ..
+// "15 is odd"
+const printOddEven = (count)=> {
+    let answer = "";
+    for (let index = 0; index <= count; index++) {
+        answer += `"${index} is ${index % 2 === 0 ? "even" : "odd"}"<br>`;
+    }
+    return answer;
 };
-let ansEx5_1 = `sumArray([1,2,3]): ${sumArray([1, 2, 3])}`;
-let ansEx5_2 = `sumArray([2,2,2,2]): ${sumArray([2, 2, 2, 2])}`;
-let ansEx5_3 = `sumArray([50,50,1]): ${sumArray([50, 50, 1])}`;
-document.getElementById("ansEx5_1").innerHTML = ansEx5_1;
-document.getElementById("ansEx5_2").innerHTML = ansEx5_2;
-document.getElementById("ansEx5_3").innerHTML = ansEx5_3;
+let ansEx5 = printOddEven(15);
+document.getElementById("ansEx5").innerHTML = ansEx5;
 
 // Exercise 6
-const returnDay = (day) => {
-    if (!day) {
-        return null;
-    }
-
-    switch (day) {
-        case 1:
-            return "Monday"
-            break;
-        case 2:
-            return "Tuesday"
-            break;
-        case 3:
-            return "Wednesday"
-            break;
-        case 4:
-            return "Thursday"
-            break;
-        case 5:
-            return "Friday"
-            break;
-        case 6:
-            return "Saturday"
-            break;
-        case 7:
-            return "Sunday"
-            break;
-        default:
-            break;
-    }
+// เขียนโปรแกรม JS เพื่อแสดงผลลัพธ์ให้ออกมาตามรูปแบบในตัวอย่างข้างล่างนี้
+// โดยที่จะต้องใช้ nested loop ในการแสดงผลลัพธ์ในข้อนี้เท่านั้น
+// *  
+// * *  
+// * * *  
+// * * * *  
+// * * * * *
+const printTriangle = (rows)=> {
+    let answer = "";
+    for (let i = 1; i <= rows; i++) {
+        let asterisks = "";
+        for (let j = 1; j <= i; j++) {
+            asterisks += "* ";
+        }
+        answer += asterisks.trim() + "<br>";
+    };
+    return answer;
 };
-let ansEx6_1 = `returnDay(1): ${returnDay(1)}`;
-let ansEx6_2 = `returnDay(7): ${returnDay(7)}`;
-let ansEx6_3 = `returnDay(4): ${returnDay(4)}`;
-let ansEx6_4 = `returnDay(0): ${returnDay(0)}`;
-document.getElementById("ansEx6_1").innerHTML = ansEx6_1;
-document.getElementById("ansEx6_2").innerHTML = ansEx6_2;
-document.getElementById("ansEx6_3").innerHTML = ansEx6_3;
-document.getElementById("ansEx6_4").innerHTML = ansEx6_4;
+let ansEx6 = printTriangle(5);
+document.getElementById("ansEx6").innerHTML = ansEx6;
+
+// Exercise 7
+// เขียนโปรแกรม JS เพื่อหาผลรวมของตัวเลขทั้งหมดตั้งแต่ 0 - 1000
+// แต่ตัวเลขนั้นจะต้องหาร 3 หรือ 5 ลงตัวเท่านั้น
+const findSum = ()=> {
+    let sum = 0;
+    for (let index = 0; index <= 1000; index++) {
+        if ((index % 3 == 0) || (index % 5 == 0)) {
+            sum += index;
+        };
+    };
+    return sum;
+};
+let ansEx7 = `Result is: ${findSum()}`;
+document.getElementById("ansEx7").innerHTML = ansEx7;
+
+// Exercise 8
+// เขียนโปรแกรม JS เพื่อใช้ในการหาค่าเฉลี่ยของคะแนนสอบ
+// จากนักเรียนทั้งหมดที่กำหนดให้ในตาราง และจากนั้นให้ใช้คะแนนเฉลี่ย
+// ที่คำนวณมาได้ ใช้ในการคำนวณเกรดต่อไป
+// โดยที่เกรดจะต้องถูกคำนวณตามเงื่อนไขดังต่อไปนี้
+// <60  F
+// <70  D
+// <80  C
+// <90  B
+// <100 A
+const examResults = { David: 80, Vinoth: 77, Divya: 88, Ishitha: 95, Thomas: 68 };
+const calGrade = (score)=> {
+    if (!score || score > 100) {
+        return "Invalid score";
+    }
+    else if (score < 60) {
+        return 'F';
+    } else if (score < 70) {
+        return 'D';
+    } else if (score < 80) {
+        return 'C';
+    } else if (score < 90) {
+        return 'B';
+    } else {
+        return 'A';
+    };
+};
+const getStudentGrades = (examResults)=> {
+    const studentGrades = {};
+    let examResultsKeys = Object.keys(examResults);
+    for (let index = 0; index < examResultsKeys.length; index++) {
+        let student = examResultsKeys[index];
+        studentGrades[student] = calGrade(examResults[student]);
+    }
+    return studentGrades;
+};
+const formatResult = (studentGrades)=> {
+    let formattedResult = "<ul>";
+    for (let student in studentGrades) {
+        formattedResult += `<li>${student}: ${studentGrades[student]}</li>`;
+    }
+    formattedResult += "</ul>";
+
+    return formattedResult;
+}
+let ansEx8 = formatResult(getStudentGrades(examResults));
+document.getElementById("ansEx8").innerHTML = ansEx8;
